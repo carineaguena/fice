@@ -13,7 +13,7 @@ if(isset($_GET["id"])){
     $conn = new Conexao();
     $stmt = $conn->pdo2->query("select * from avaliacao where id=$id");
 
-    $stmt4 = $conn->pdo->query("select * from avaliadores order by nome");
+    //$stmt4 = $conn->pdo->query("select * from avaliadores order by nome");
 
 
     
@@ -30,12 +30,15 @@ if(isset($_GET["id"])){
             
 
                 while($row3 = $stmt5->fetch()){
+
                     $nome_arquivo = $row3['nome_arquivo'];
                     echo "<p>Arquivo do trabalho: <a href='../trabalhos/" .$row3['nome_arquivo'] ."'>" . $row3['nome_arquivo'] . "</a></p>";
                 }
 
                 $arquivo = "../trabalhos/".$nome_arquivo;
+
             ?>
+
 
         <input type="hidden" id="id_avaliacao" name="id_avaliacao" value="<?php echo $id ?>">
 
@@ -62,51 +65,33 @@ if(isset($_GET["id"])){
         </div>
 
 
-        <div class="input-group mb-3" required>
-            <select class="custom-select" id="avaliador" name="avaliador"> 
-                <option value="<?php echo $row["id_avaliador"]?>"><?php echo $row["avaliador"]?></option>
-                <?php
-                    while($row2 = $stmt4->fetch()){
-                        echo "<option value='". $row2['id'] ."'>" . utf8_encode($row2['nome']) . "</option>"; 
-                                          
-                    }
-                    
-                
-                ?>
-            </select>
-
-        </div>
 
         <div class="row justify-content-md-center">
-            <div class="col-md-auto">
-                <div class="input-group">
-                    <iframe src="<?php echo $arquivo?>" width="600" height="480" style="border: none;"></iframe>
-                </div>
-            </div>
-
-            <div class="col-md-auto">
-                <textarea id="comentarios" name="comentarios"><?php echo $row["comentarios"]?></textarea>
-                <script>
-                        CKEDITOR.replace( 'comentarios' );
-                </script>
-        
-
-                <div class="input-group mb-3">
-                    <input type="submit" class="btn btn-outline-primary" id="editaravaliacao" value="Editar"></input>
             
-                    <input type="button" class="btn btn-outline-primary" id="cancelar" value="Cancelar" onclick="location.href='buscarAvaliacao.php';"></input>
+                <div class="col-md-auto">
+                    <div class="input-group">
+                        <iframe src="<?php echo $arquivo?>" width="718px" height="700px" style="border: none;"></iframe>
+                    </div>
                 </div>
-            </div>
+            
         </div>
 
-        
+       
+        <textarea id="comentarios" name="comentarios" width="718px" height="700px"><?php echo $row["comentarios"]?></textarea>
+        <script>
+                CKEDITOR.replace( 'comentarios' );
+        </script>
 
 
+        <div class="input-group mb-3">
+            <input type="submit" class="btn btn-outline-primary" id="editaravaliacao" value="Editar"></input>
     
+            <input type="button" class="btn btn-outline-primary" id="cancelar" value="Cancelar" onclick="location.href='avaliarTrabalhos.php';"></input>
+        </div>
+            
+
                 <?php } ?>
     </form>
-
-
 
 <?php
 
@@ -119,7 +104,7 @@ if(isset($_POST)){
     $temstatus = isset($_POST['status']) ? $_POST['status'] : false;
     $temtrabalho = isset($_POST['trabalho']) ? $_POST['trabalho'] : false;
     $temarea = isset($_POST['area']) ? $_POST['area'] : false;
-    $idavaliador = isset($_POST['avaliador']) ? $_POST['avaliador'] : false;
+    //$idavaliador = isset($_POST['avaliador']) ? $_POST['avaliador'] : false;
     $temcomentarios = isset($_POST['comentarios']) ? $_POST['comentarios'] : false;
 
    
@@ -130,13 +115,8 @@ if(isset($_POST)){
                     require '../conexao.php';
                     $conn = new Conexao();
 
-                    $stmt7 = $conn->pdo->query("select * from avaliadores where id=$idavaliador");
-
-                    while($row7 = $stmt7->fetch()){
-                        $temavaliador = utf8_encode($row7['nome']);
-                    }
-
-                    $stmt = $conn->pdo2->prepare("update avaliacao set id_avaliador=$idavaliador, status='$temstatus', avaliador='$temavaliador', comentarios='$temcomentarios' where id=$temavaliacao");
+                    
+                    $stmt = $conn->pdo2->prepare("update avaliacao set status='$temstatus',  comentarios='$temcomentarios' where id=$temavaliacao");
                     $stmt->execute();
                     
 

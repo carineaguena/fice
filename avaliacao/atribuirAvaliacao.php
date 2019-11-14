@@ -45,7 +45,7 @@ function atribuir(valor){
 ?>
 
         <div class="input-group-append">
-            <input type="submit" class="btn btn-outline-secondary" id="buscararea"></input>
+            <input type="submit" class="btn btn-outline-primary" id="buscararea"></input>
         </div>
     </div>
 </form>
@@ -75,7 +75,7 @@ if(isset($_POST['areas'])){
 
             echo "</select>
                     <div class='input-group-append'>
-                    <input type='submit' class='btn btn-outline-secondary' id='buscartrabalho'></input>
+                    <input type='submit' class='btn btn-outline-primary' id='buscartrabalho'></input>
                 </div>
             </div>
         </form>";
@@ -129,7 +129,7 @@ if(isset($_POST['trabalhos'])){
                             <input type='hidden' id='id_trabalho' name='id_trabalho' value='". $id_trabalho ."'>
 
                             <div class='input-group-append'>
-                            <input type='submit' class='btn btn-outline-secondary' id='buscaravaliador'></input>
+                            <input type='submit' class='btn btn-outline-primary' id='buscaravaliador'></input>
                         </div>
                     </div>
                 </form>";
@@ -181,7 +181,7 @@ if(isset($_POST['avaliadores'])){
 
 
             <div class='input-group-append'>
-            <input type='submit' class='btn btn-outline-secondary' id='adcionaravaliador' value='Gravar Avaliação'></input>
+            <input type='submit' class='btn btn-outline-primary' id='adcionaravaliador' value='Gravar Avaliação'></input>
         </div>
     </div>
 </form>";

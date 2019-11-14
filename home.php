@@ -18,7 +18,7 @@
         <?php if($_SESSION["status"] == "A"): ?>
 
             <div class="col-md-auto">
-                <div class="card" style="width: 18rem;">
+                <div class="card">
                     <div class="card-header">
                         Gerenciar Usuários
                     </div>
@@ -33,7 +33,7 @@
         
 
             <div class="col-md-auto">
-                <div class="card" style="width: 18rem;">
+                <div class="card">
                     <div class="card-header">
                         Gerenciar Avaliações
                     </div>
@@ -55,15 +55,13 @@
             <!-- Menu Supervisor-->
 
             <div class="col-md-auto">
-                <div class="card" style="width: 18rem;">
+                <div class="card">
                     <div class="card-header">
                         Gerenciar Avaliações
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"> <a href="avaliacao/buscarAvaliacao.php" class="btn btn-primary">Buscar Avaliação</a></li>
                         <li class="list-group-item"> <a href="avaliacao/atribuirAvaliacao.php" class="btn btn-primary">Adicionar Avaliação</a></li>
-                        <li class="list-group-item"> <a href="avaliacao/removerAvaliacao.php" class="btn btn-primary">Remover Avaliação</a></li>
-                        <li class="list-group-item"> <a href="avaliacao/aprovarAvaliacao.php" class="btn btn-primary">Aprovar Avaliação</a></li>
                     </ul>   
                 </div>
             
@@ -76,16 +74,13 @@
 
             <!-- Menu Avaliador-->
 
-            <div class="col-md-auto">
-                <div class="card" style="width: 18rem;">
+            <div class="col-sm-auto">
+                <div class="card">
                     <div class="card-header">
                         Avaliar Trabalhos
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"> <a href="avaliadores/buscarAvaliacoes.php" class="btn btn-primary">Buscar Avaliações</a></li>
                         <li class="list-group-item"> <a href="avaliadores/avaliarTrabalhos.php" class="btn btn-primary">Avaliar Trabalhos</a></li>
-                        <li class="list-group-item"> <a href="avaliadores/editarAvaliacao.php" class="btn btn-primary">Editar Avaliação</a></li>
-                        <li class="list-group-item"> <a href="avaliadores/removerAvaliacao.php" class="btn btn-primary">Remover Avaliação</a></li>
                     </ul>   
                 </div>
             

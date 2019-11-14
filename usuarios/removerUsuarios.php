@@ -9,7 +9,9 @@
     $conn = new Conexao();
     $stmt = $conn->pdo2->query("select * from usuarios");
 
-            echo "<table class='table'>
+            echo "
+            <div class='table-responsive-sm'>
+                <table class='table'>
                         <thead>
                             <tr>
                                 <th scope='col'>#</th>
@@ -34,7 +36,8 @@
                     
             echo "
                     </tbody>
-                </table>";
+                </table>
+                </div>";
             
 
         

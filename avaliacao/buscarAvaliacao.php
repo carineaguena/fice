@@ -6,7 +6,7 @@
     <div class="input-group mb-3">
         <input type="text" class="form-control" id="nome" name="nome" placeholder="Título do trabalho" aria-label="Título do trabalho" aria-describedby="buscar">
         <div class="input-group-append">
-            <input type="submit" class="btn btn-outline-secondary" id="buscaravaliacao"></input>
+            <input type="submit" class="btn btn-outline-primary" id="buscaravaliacao"></input>
         </div>
     </div>
 </form>
@@ -27,7 +27,8 @@
             $conn = new Conexao();
             $stmt = $conn->pdo2->query("select * from avaliacao where trabalho like '%$nome%'");
 
-            echo "<table class='table'>
+            echo "<div class='table-responsive-sm'>
+                    <table class='table table-hover'>
                         <thead>
                             <tr>
                                 <th scope='col'>#</th>
@@ -52,15 +53,16 @@
                                 <td>" . $row['comentarios'] . "</td>
                                 <td>" . $row['status'] . "</td>
 
-                                <td><a href='editarAvaliacoes.php?id=".$row['id']."' class='btn btn-outline-secondary' id='editar'>Editar</a></td>
-                                <td><a href='buscarAvaliacao.php?id_delete=".$row['id']."' class='btn btn-outline-secondary' id='remover' onClick='return confirm(\"Deseja mesmo deletar?\")'>Remover</a></td>
+                                <td><a href='editarAvaliacoes.php?id=".$row['id']."' class='btn btn-outline-primary' id='editar'>Editar</a></td>
+                                <td><a href='buscarAvaliacao.php?id_delete=".$row['id']."' class='btn btn-outline-primary' id='remover' onClick='return confirm(\"Deseja mesmo deletar?\")'>Remover</a></td>
                             </tr>
                         "; 
                     }
                     
             echo "
                     </tbody>
-                </table>";
+                </table>
+                </div>";
             
 
         }else{
@@ -69,7 +71,9 @@
             $conn = new Conexao();
              $stmt2 = $conn->pdo2->query("select * from avaliacao");
     
-                echo "<table class='table'>
+                echo "
+                <div class='table-responsive-sm'>
+                    <table class='table'>
                             <thead>
                                 <tr>
                                     <th scope='col'>#</th>
@@ -95,15 +99,16 @@
                                     <td>" . $row2['comentarios'] . "</td>
                                     <td>" . $row2['status'] . "</td>
     
-                                    <td><a href='editarAvaliacoes.php?id=".$row2['id']."' class='btn btn-outline-secondary' id='editar'>Editar</a></td>
-                                    <td><a href='buscarAvaliacao.php?id_delete=".$row2['id']."' class='btn btn-outline-secondary' id='remover' onClick='return confirm(\"Deseja mesmo deletar?\")'>Remover</a></td>
+                                    <td><a href='editarAvaliacoes.php?id=".$row2['id']."' class='btn btn-outline-primary' id='editar'>Editar</a></td>
+                                    <td><a href='buscarAvaliacao.php?id_delete=".$row2['id']."' class='btn btn-outline-primary' id='remover' onClick='return confirm(\"Deseja mesmo deletar?\")'>Remover</a></td>
                                 </tr>
                             "; 
                         }
                         
                 echo "
                         </tbody>
-                    </table>";
+                    </table>
+                </div>";
     
     
                 }
@@ -115,7 +120,9 @@
             $conn = new Conexao();
              $stmt2 = $conn->pdo2->query("select * from avaliacao");
     
-                echo "<table class='table'>
+                echo "
+                <div class='table-responsive-sm'>
+                    <table class='table'>
                             <thead>
                                 <tr>
                                     <th scope='col'>#</th>
@@ -140,15 +147,16 @@
                                     <td>" . $row2['comentarios'] . "</td>
                                     <td>" . $row2['status'] . "</td>
     
-                                    <td><a href='editarAvaliacoes.php?id=".$row2['id']."' class='btn btn-outline-secondary' id='editar'>Editar</a></td>
-                                    <td><a href='buscarAvaliacao.php?id_delete=".$row2['id']."' class='btn btn-outline-secondary' id='remover' onClick='return confirm(\"Deseja mesmo deletar?\")'>Remover</a></td>
+                                    <td><a href='editarAvaliacoes.php?id=".$row2['id']."' class='btn btn-outline-primary' id='editar'>Editar</a></td>
+                                    <td><a href='buscarAvaliacao.php?id_delete=".$row2['id']."' class='btn btn-outline-primary' id='remover' onClick='return confirm(\"Deseja mesmo deletar?\")'>Remover</a></td>
                                 </tr>
                             "; 
                         }
                         
                 echo "
                         </tbody>
-                    </table>";
+                    </table>
+                    </div>";
             
     
     }

@@ -31,15 +31,21 @@ if($_POST){
         }
     }elseif($status == 'Z'){
         $select = $conn->select($nome, $senha);
+
+        foreach($select as $row){
+            $id_avaliador = $row['id'];
+        }
         if($select){
             $_SESSION["usuario"] = $nome;
             $_SESSION["senha"] = $senha;
             $_SESSION["status"] = $status;
+            $_SESSION["id_avaliador"] = $id_avaliador;
             header("location:home.php");
         }else{
             unset ($_SESSION['usuario']);
             unset ($_SESSION['senha']);
             unset ($_SESSION['status']);
+            unset ($_SESSION['id_avaliador']);
             echo ("<script> alert(\"Senha ou usuário não conferem.\"); location.href=\"inicio.php\"; </script>");
             //header("location:page-login.html");
         }
